@@ -33,6 +33,31 @@ const dailyErrorTransport = new DailyRotateFile({
   format: dailyFormat,
 });
 
+// core/log/services.ts
+export const LogService = {
+  ServerListen: "Server Listen",
+  ServerError: "Server Error",
+  ServerShutdown: "Server Shutdown",
+  ServerShutdownError: "Server Shutdown Error",
+  ServerShutdownSignal: "Server Shutdown Signal",
+  DatabaseConnect: "Database Connect",
+  DatabaseConnectError: "Database Connect Error",
+  DatabaseDisconnect: "Database Disconnect",
+  DatabaseDisconnectError: "Database Disconnect Error",
+  DatabaseQuery: "Database Query",
+  DatabaseQueryError: "Database Query Error",
+  DatabaseError: "Database Error",
+  CacheLoad: "Cache Load",
+  CacheSave: "Cache Save",
+  CacheError: "Cache Error",
+  CacheMiss: "Cache Miss",
+  CacheHit: "Cache Hit",
+  CacheSet: "Cache Set",
+  CacheDelete: "Cache Delete",
+  CacheClear: "Cache Clear",
+  CacheExpire: "Cache Expire",
+};
+
 // Final logger instance
 export const log = createLogger({
   level: isProd ? "info" : "debug",

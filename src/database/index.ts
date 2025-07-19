@@ -1,4 +1,4 @@
-import { log } from "@/core/log";
+import { log, LogService } from "@/core/log";
 import { PrismaClient } from "@/generated/prisma";
 
 import type { PrismaClient as PrismaClientType } from "@/generated/prisma";
@@ -23,11 +23,11 @@ class PrismaService {
     try {
       await PrismaService.client.$connect();
       log.info("✅ Prisma connected to the database.", {
-        service: "Database Service",
+        service: LogService.DatabaseConnect,
       });
     } catch (error) {
       log.error("❌ Prisma failed to connect", error, {
-        service: "Prisma Service Error",
+        service: LogService.DatabaseConnectError,
       });
       process.exit(1);
     }
@@ -37,11 +37,11 @@ class PrismaService {
     try {
       await PrismaService.client.$disconnect();
       log.info("🛑 Prisma disconnected from the database.", {
-        service: "Prisma Disconnected",
+        service: LogService.DatabaseDisconnect,
       });
     } catch (error) {
       log.error("⚠️ Error during Prisma disconnect", error, {
-        service: "Prisma Disconnect Error",
+        service: LogService.DatabaseDisconnectError,
       });
     }
   }

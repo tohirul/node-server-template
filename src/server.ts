@@ -6,7 +6,7 @@ import process from "process";
 
 import { config } from "@/config";
 import { loadCacheFromDisk, saveCacheToDisk } from "@/core/cache/persist";
-import { log } from "@/core/log/";
+import { log, LogService } from "@/core/log/";
 import PrismaService from "@/database";
 
 // import { registerRepositories } from '@core/repositories/container';
@@ -25,7 +25,7 @@ const toggleServer = async (): Promise<void> => {
 
     server = app.listen(PORT, async () => {
       log.info(`✅ Server running on ${`http://localhost`}:${PORT}`, {
-        service: "Server",
+        service: LogService.ServerListen,
       });
       await PrismaService.connect();
     });
@@ -33,7 +33,9 @@ const toggleServer = async (): Promise<void> => {
     // ✅ Save cache every 30 seconds
     setInterval(saveCacheToDisk, 30 * 1000);
   } catch (error) {
-    log.error("❌ Server failed to start:", error, { service: "Server Error" });
+    log.error("❌ Server failed to start:", error, {
+      service: LogService.ServerError,
+    });
     process.exit(1);
   }
 };
@@ -43,7 +45,7 @@ const handleServerShutdown = async (
   error?: Error
 ): Promise<void> => {
   log.warn(`🛑 Shutdown signal received: ${eventName}`, {
-    service: "Server Shutdown",
+    service: LogService.ServerShutdownSignal,
   });
 
   try {
@@ -52,17 +54,19 @@ const handleServerShutdown = async (
     if (server) {
       server.close(async () => {
         await PrismaService.disconnect();
-        log.info("🛑 Server closed.", { service: "Server Shutdown" });
+        log.info("🛑 Server closed.", { service: LogService.ServerShutdown });
         if (error) {
           log.error("⚠️ Shutdown error:", error, {
-            service: "Server Shutdown Error",
+            service: LogService.ServerShutdownError,
           });
         }
         process.exit(0);
       });
     }
   } catch (shutdownError) {
-    log.error("❌ Error during shutdown:", shutdownError);
+    log.error("❌ Error during shutdown:", shutdownError, {
+      service: LogService.ServerShutdownError,
+    });
     process.exit(1);
   }
 };
