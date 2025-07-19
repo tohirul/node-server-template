@@ -1,15 +1,14 @@
-import "./module-alias";
-import "reflect-metadata";
+import './module-alias';
+import 'reflect-metadata';
 
-import http from "http";
-import process from "process";
+import http from 'http';
+import process from 'process';
 
-import { config } from "@/config";
-import { loadCacheFromDisk, saveCacheToDisk } from "@/core/cache/persist";
-import { log, LogService } from "@/core/log/";
-import PrismaService from "@/database";
-
-// import { registerRepositories } from '@core/repositories/container';
+import { config } from '@/config';
+import { loadCacheFromDisk, saveCacheToDisk } from '@/core/cache/persist';
+import { log, LogService } from '@/core/log/';
+import { registerRepositories } from '@/core/repositories/container';
+import PrismaService from '@/database';
 
 const PORT: number = Number(config.PORT) || 5000;
 
@@ -19,7 +18,7 @@ const toggleServer = async (): Promise<void> => {
   try {
     loadCacheFromDisk();
 
-    // await registerRepositories();
+    await registerRepositories();
 
     const { default: app } = await import("@/app");
 
