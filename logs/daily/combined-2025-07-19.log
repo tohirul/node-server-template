@@ -1,0 +1,37 @@
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"your-service-name","timestamp":"2025-07-18T21:29:17.667Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"your-service-name","timestamp":"2025-07-18T21:29:17.754Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"your-service-name","timestamp":"2025-07-18T21:31:57.129Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"your-service-name","timestamp":"2025-07-18T21:31:57.197Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"your-service-name","timestamp":"2025-07-18T21:32:22.794Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"your-service-name","timestamp":"2025-07-18T21:32:22.848Z"}
+{"level":"warn","message":"🛑 Shutdown signal received: SIGINT","service":"your-service-name","timestamp":"2025-07-18T21:32:36.552Z"}
+{"level":"info","message":"🛑 Prisma disconnected from the database.","service":"your-service-name","timestamp":"2025-07-18T21:32:36.554Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"your-service-name","timestamp":"2025-07-18T21:32:46.237Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"your-service-name","timestamp":"2025-07-18T21:32:46.297Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-18T21:34:38.622Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"your-service-name","timestamp":"2025-07-18T21:34:38.695Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-18T21:35:15.327Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"your-service-name","timestamp":"2025-07-18T21:35:15.381Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-18T21:36:03.417Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"your-service-name","timestamp":"2025-07-18T21:36:03.481Z"}
+{"level":"warn","message":"🛑 Shutdown signal received: SIGINT","service":"Server Shutdown","timestamp":"2025-07-18T21:36:10.366Z"}
+{"level":"info","message":"🛑 Prisma disconnected from the database.","service":"your-service-name","timestamp":"2025-07-18T21:36:10.369Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-18T21:36:16.025Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"your-service-name","timestamp":"2025-07-18T21:36:16.078Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-18T21:38:12.991Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"Prisma Service","timestamp":"2025-07-18T21:38:13.050Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-18T21:38:27.847Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"Database Service","timestamp":"2025-07-18T21:38:27.912Z"}
+{"level":"warn","message":"🛑 Shutdown signal received: SIGINT","service":"Server Shutdown","timestamp":"2025-07-18T21:38:37.295Z"}
+{"level":"info","message":"🛑 Prisma disconnected from the database.","service":"Prisma Disconnected","timestamp":"2025-07-18T21:38:37.301Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-18T21:39:37.543Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"Database Service","timestamp":"2025-07-18T21:39:37.621Z"}
+{"level":"warn","message":"🛑 Shutdown signal received: SIGINT","service":"Server Shutdown","timestamp":"2025-07-18T21:39:39.754Z"}
+{"level":"info","message":"🛑 Prisma disconnected from the database.","service":"Prisma Disconnected","timestamp":"2025-07-18T21:39:39.760Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-18T21:39:53.691Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"Database Service","timestamp":"2025-07-18T21:39:53.748Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-18T21:45:25.362Z"}
+{"code":"EPIPE","errno":-32,"level":"error","message":"Uncaught Exception: write EPIPE","service":"your-service-name","stack":"Error: write EPIPE\n    at afterWriteDispatched (node:internal/stream_base_commons:159:15)\n    at writeGeneric (node:internal/stream_base_commons:150:3)\n    at Socket._writeGeneric (node:net:971:11)\n    at Socket._write (node:net:983:8)\n    at writeOrBuffer (node:internal/streams/writable:572:12)\n    at _write (node:internal/streams/writable:501:10)\n    at Socket.Writable.write (node:internal/streams/writable:510:10)\n    at console.value (node:internal/console/constructor:298:16)\n    at console.log (node:internal/console/constructor:384:26)\n    at _log (/home/tohir/Projects/project-management/server/node_modules/dotenv/lib/main.js:136:11)","syscall":"write","timestamp":"2025-07-18T21:45:25.367Z"}
+{"level":"warn","message":"🛑 Shutdown signal received: uncaughtException","service":"Server Shutdown","timestamp":"2025-07-18T21:45:25.367Z"}
+{"level":"info","message":"✅ Server running on http://localhost:4000","service":"Server","timestamp":"2025-07-19T05:28:47.803Z"}
+{"level":"info","message":"✅ Prisma connected to the database.","service":"Database Service","timestamp":"2025-07-19T05:28:47.889Z"}
