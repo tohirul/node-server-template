@@ -1,8 +1,8 @@
 // core/shared/services.ts
 
-import { injectable } from 'tsyringe';
+import { injectable } from "tsyringe";
 
-import type { IService } from "../types/common";
+import type { IService } from "@/core/types/common";
 
 interface Repository<T> {
   findAll(args?: any): Promise<T[]>;

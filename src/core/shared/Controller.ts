@@ -1,16 +1,16 @@
 // core/shared/controller.ts
 
-import crypto from 'crypto';
-import { Request, Response } from 'express';
+import crypto from "crypto";
+import { Request, Response } from "express";
 
-import cache from '@/core/cache';
-import { deleteAllMatchingKeys } from '@/core/cache/persist';
-import { NotFoundError } from '@/core/errors/NotFound.Error';
-import catchAsync from '@/core/utilities/catchAsync';
-import { createResponse } from '@/core/utilities/createResponse';
-import HttpStatus from '@/core/utilities/httpStatus';
-import { parseQuery } from '@/core/utilities/queryParser';
-import sendResponse from '@/core/utilities/sendResponse';
+import cache from "@/core/cache";
+import { deleteAllMatchingKeys } from "@/core/cache/persist";
+import { NotFoundError } from "@/core/errors/NotFound.Error";
+import catchAsync from "@/core/utilities/catchAsync";
+import { createResponse } from "@/core/utilities/createResponse";
+import HttpStatus from "@/core/utilities/httpStatus";
+import { parseQuery } from "@/core/utilities/queryParser";
+import sendResponse from "@/core/utilities/sendResponse";
 
 type Service<T, CreateDto, UpdateDto> = {
   getAll: (query?: any) => Promise<T[]>;
@@ -29,17 +29,17 @@ export default class Controller<T, CreateDto = T, UpdateDto = Partial<T>> {
   ) {}
 
   getAll = catchAsync(async (req: Request, res: Response) => {
-    const parsed = parseQuery(req.query);
+    const query = parseQuery(req.query);
     const queryHash = crypto
       .createHash("md5")
-      .update(JSON.stringify(parsed))
+      .update(JSON.stringify(query))
       .digest("hex");
 
     const cacheKey = `all:${this.constructor.name}:${queryHash}`;
     let result = cache.get<T[]>(cacheKey);
 
     if (!result) {
-      result = await this.service.getAll(parsed);
+      result = await this.service.getAll(query);
       if (result.length > 0) cache.set(cacheKey, result, this.cacheTTL);
     }
 
